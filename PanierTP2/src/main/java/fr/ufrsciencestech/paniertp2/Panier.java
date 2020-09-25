@@ -1,5 +1,6 @@
 package fr.ufrsciencestech.paniertp2;
 
+import static java.lang.Math.abs;
 import java.util.*;
 /**
  *
@@ -11,7 +12,7 @@ public class Panier {
 	
     //groupe 1
     public Panier(int contenanceMax){  //initialise un panier vide ayant une certaine contenance maximale (precisee en parametre)
-	this.contenanceMax = contenanceMax;
+	this.contenanceMax = abs(contenanceMax);
 	fruits = new ArrayList<Fruit>();
     }
 
@@ -65,9 +66,12 @@ public class Panier {
 
     //groupe 4
     public void ajout(Fruit o) throws PanierPleinException{  //ajoute le fruit o a la fin du panier si celui-ci n'est pas plein
-	if (!estPlein()){
-		fruits.add(o);
-	}
+	if(o == null)
+            return;
+        if(this.fruits.size() < this.contenanceMax){
+            this.fruits.add(o);
+        }
+        else throw new PanierPleinException();
     }
 
     //groupe 5
@@ -89,11 +93,13 @@ public class Panier {
     
     //groupe 7
     public void boycotteOrigine(String origine){  //supprime du panier tous les fruits provenant du pays origine
-	for (int i = 0 ;i<fruits.size();i++){
-            if (fruits.get(i).getOrigine().equals(origine) ){
-                fruits.remove(fruits.get(i));
-            }
-	}
+	int i = 0;					//A
+	while(i < fruits.size()){			//B
+            if(fruits.get(i).getOrigine().equals(origine)) //C
+		fruits.remove(i);			//D
+            else								 
+		i++ ;					//E
+        }
     }
         
     //groupe 8    
