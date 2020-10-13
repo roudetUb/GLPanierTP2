@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.paniertp2;
+package fr.ufrsciencestech.paniertp2.model;
 
 public class Banane implements Fruit
 {

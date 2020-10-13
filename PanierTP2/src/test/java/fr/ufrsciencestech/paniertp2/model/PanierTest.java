@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.ufrsciencestech.paniertp2;
+package fr.ufrsciencestech.paniertp2.model;
 
 import java.util.ArrayList;
 import org.junit.After;
@@ -175,6 +175,7 @@ public class PanierTest {
         assertTrue(pm1.estPlein());
     }
     
+    
 
     
     //TESTS EN ISOLATION DE GETPRIX
@@ -275,6 +276,7 @@ public class PanierTest {
 	assertEquals(p3_1, p3_2);
     }
     
+	
     
     //TESTS A LANCER QUAND LA CLASSE ORANGE A ETE TESTEE : INTEGRATION DE BOYCOTTEORIGINE
     //DT1 panier vide (de contenanceMax=3) et origine = "Espagne" / resultat : le panier est toujours vide
@@ -336,6 +338,7 @@ public class PanierTest {
         assertTrue(p3.getTaillePanier() == 1);
         assertFalse(p3.estPlein());
     }
+    
     
     
     
